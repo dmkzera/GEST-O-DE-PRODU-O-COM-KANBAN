@@ -1,4 +1,4 @@
-/* Estilos gerais */
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: #f4f7f9;
@@ -16,14 +16,14 @@ header h1 {
     color: #2c3e50;
 }
 
-/* Quadro Kanban */
+
 .kanban-board {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
 
-/* Colunas do Kanban */
+
 .kanban-column {
     flex: 1;
     background-color: #e3e8ed;
@@ -41,24 +41,23 @@ header h1 {
 }
 
 .cards-container {
-    min-height: 400px; /* Altura mínima para a área de drop */
+    min-height: 400px; 
     padding: 10px 0;
 }
 
-/* Cartões (Pedidos) */
-/* Ações do Card (Editar/Deletar) */
+
 .card-actions {
     position: absolute;
     top: 8px;
     right: 8px;
-    display: none; /* Escondido por padrão */
+    display: none;
     background: rgba(255,255,255,0.8);
     border-radius: 5px;
     padding: 2px;
 }
 
 .card:hover .card-actions {
-    display: flex; /* Mostra no hover */
+    display: flex; 
     gap: 5px;
 }
 
@@ -76,14 +75,14 @@ header h1 {
 }
 
 .card {
-    position: relative; /* Necessário para o posicionamento absoluto das ações */
+    position: relative; 
     background-color: #ffffff;
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     cursor: grab;
-    border-left: 5px solid #3498db; /* Cor padrão */
+    border-left: 5px solid #3498db; 
 }
 
 .card:active {
@@ -141,12 +140,10 @@ header h1 {
     background-color: #2ecc71;
 }
 
-/* Cores específicas por status */
-#todo .card { border-left-color: #e74c3c; } /* Vermelho */
-#doing .card { border-left-color: #f1c40f; } /* Amarelo */
-#done .card { border-left-color: #2ecc71; } /* Verde */
+#todo .card { border-left-color: #e74c3c; } 
+#doing .card { border-left-color: #f1c40f; } 
+#done .card { border-left-color: #2ecc71; } 
 
-/* Botão de Navegação Principal */
 .nav-button {
     position: absolute;
     top: 20px;
@@ -163,13 +160,12 @@ header h1 {
     background-color: #3498db;
 }
 
-/* Botão e Rodapé do Card */
 .card-footer {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #eee;
     text-align: right;
-    min-height: 35px; /* Garante espaço mesmo vazio */
+    min-height: 35px; 
 }
 .shipping-btn {
     background-color: #27ae60;
@@ -189,8 +185,6 @@ header h1 {
     background-color: #95a5a6;
     cursor: not-allowed;
 }
-
-/* Estilos da Página de Cargas */
 .main-container {
     display: flex;
     gap: 20px;
@@ -252,20 +246,18 @@ header h1 {
     font-size: 1em;
 }
 
-/* Estilo para quando um card está sendo arrastado */
+
 .dragging {
     opacity: 0.5;
     transform: rotate(3deg);
 }
 
-/* Production Steps Checkboxes */
 .production-steps {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #e0e0e0;
-    display: none; /* Escondido por padrão, JS controla a visibilidade */
+    display: none; 
 }
-
 .production-steps label {
     display: block;
     margin-bottom: 5px;
@@ -280,14 +272,13 @@ header h1 {
     margin-bottom: 5px;
 }
 
-/* Estilo para a área onde o card pode ser solto */
 .drag-over {
     background-color: #d1e8ff;
     border: 2px dashed #99caff;
 }
 
 
-/* Botão e Modal para Adicionar Card */
+
 #add-card-btn {
     position: fixed;
     bottom: 30px;
