@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pendingCardsContainer = document.getElementById('pending-cards-container');
     const shippingLanesContainer = document.getElementById('shipping-lanes-container');
 
-    // --- FUNÇÕES DE API ---
+   
     async function postData(url, data) {
         const response = await fetch(url, {
             method: 'POST',
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- FUNÇÕES DE RENDERIZAÇÃO ---
+    
     function createCardElement(card) {
         const cardEl = document.createElement('div');
         cardEl.className = 'shipping-card';
@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
         addDragAndDropListeners();
     }
 
-    // --- LISTENERS DE EVENTOS ---
+    
     function addDragAndDropListeners() {
         const cards = document.querySelectorAll('.shipping-card');
-        // O alvo agora é a rota inteira, não apenas o contêiner de cards.
+       
         const lanes = document.querySelectorAll('.shipping-lane');
         let draggedCard = null;
 
@@ -103,11 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Agora, 'lane' é o elemento .shipping-lane completo.
+        
         lanes.forEach(lane => {
             lane.addEventListener('dragover', e => {
                 e.preventDefault();
-                // Adiciona a classe de feedback visual na própria rota.
+               
                 lane.classList.add('drag-over');
             });
             lane.addEventListener('dragleave', () => {
@@ -118,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 lane.classList.remove('drag-over');
                 if (!draggedCard) return;
 
-                // O ID da rota é pego diretamente do elemento da rota.
+            
                 const cardId = draggedCard.dataset.id;
                 const laneId = lane.dataset.laneId;
 
                 try {
                     await postData('api/assign_card_to_lane.php', { card_id: cardId, lane_id: laneId });
-                    fetchData(); // Recarrega para mostrar o resultado.
+                    fetchData(); 
                 } catch (error) {
                     alert(`Erro ao atribuir card: ${error.message}`);
                     fetchData();
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setupFormAndActionListeners() {
-        // Formulário para ADICIONAR rota
+     
         const form = document.getElementById('add-lane-form');
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Ações de EDITAR e EXCLUIR rota (usando delegação de eventos)
+        
         shippingLanesContainer.addEventListener('click', async (e) => {
             const laneEl = e.target.closest('.shipping-lane');
             if (!laneEl) return;
@@ -200,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- INICIALIZAÇÃO ---
     setupFormAndActionListeners();
     fetchData();
 });
