@@ -11,7 +11,6 @@ if (empty($lane_id)) {
     exit;
 }
 
-// Check if any cards are assigned to this lane
 $check_stmt = $conn->prepare("SELECT COUNT(*) as count FROM cards WHERE shipping_lane_id = ?");
 $check_stmt->bind_param("i", $lane_id);
 $check_stmt->execute();
@@ -19,12 +18,12 @@ $result = $check_stmt->get_result()->fetch_assoc();
 $check_stmt->close();
 
 if ($result['count'] > 0) {
-    http_response_code(409); // Conflict
+    http_response_code(409); 
     echo json_encode(['success' => false, 'message' => 'Não é possível excluir a rota, pois existem pedidos atribuídos a ela.']);
     exit;
 }
 
-// If no cards are assigned, proceed with deletion
+
 $stmt = $conn->prepare("DELETE FROM shipping_lanes WHERE id = ?");
 if (!$stmt) {
     http_response_code(500);
