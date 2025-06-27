@@ -2,7 +2,6 @@
 require_once '../db/config.php';
 header('Content-Type: application/json');
 
-// Get the posted data.
 $data = json_decode(file_get_contents('php://input'), true);
 
 $destination = $data['destination'] ?? null;
