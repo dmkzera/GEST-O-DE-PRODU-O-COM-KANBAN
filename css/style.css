@@ -1,0 +1,359 @@
+/* Estilos gerais */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f4f7f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+}
+
+/* Quadro Kanban */
+.kanban-board {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Colunas do Kanban */
+.kanban-column {
+    flex: 1;
+    background-color: #e3e8ed;
+    border-radius: 8px;
+    padding: 15px;
+    min-width: 280px;
+}
+
+.kanban-column h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d1d9e0;
+    color: #34495e;
+}
+
+.cards-container {
+    min-height: 400px; /* Altura mínima para a área de drop */
+    padding: 10px 0;
+}
+
+/* Cartões (Pedidos) */
+/* Ações do Card (Editar/Deletar) */
+.card-actions {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: none; /* Escondido por padrão */
+    background: rgba(255,255,255,0.8);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.card:hover .card-actions {
+    display: flex; /* Mostra no hover */
+    gap: 5px;
+}
+
+.card-action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #7f8c8d;
+    padding: 5px;
+}
+
+.card-action-btn:hover {
+    color: #34495e;
+}
+
+.card {
+    position: relative; /* Necessário para o posicionamento absoluto das ações */
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: grab;
+    border-left: 5px solid #3498db; /* Cor padrão */
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+}
+
+.card p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.nav-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #3498db;
+}
+
+.card-footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.shipping-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.shipping-btn:hover {
+    background-color: #2ecc71;
+}
+
+/* Cores específicas por status */
+#todo .card { border-left-color: #e74c3c; } /* Vermelho */
+#doing .card { border-left-color: #f1c40f; } /* Amarelo */
+#done .card { border-left-color: #2ecc71; } /* Verde */
+
+/* Botão de Navegação Principal */
+.nav-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.nav-button:hover {
+    background-color: #3498db;
+}
+
+/* Botão e Rodapé do Card */
+.card-footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    text-align: right;
+    min-height: 35px; /* Garante espaço mesmo vazio */
+}
+.shipping-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.shipping-btn:hover {
+    background-color: #2ecc71;
+}
+.shipping-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Estilos da Página de Cargas */
+.main-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+}
+.shipping-list, .shipping-lanes-container-wrapper {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.shipping-list {
+    width: 30%;
+    flex-shrink: 0;
+}
+.shipping-lanes-container-wrapper {
+    width: 70%;
+    flex-grow: 1;
+}
+.shipping-lanes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+}
+.shipping-lane {
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.shipping-lane h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.driver-info {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+.shipping-card {
+    background-color: #e8f4ff;
+    border: 1px solid #bde0ff;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    cursor: grab;
+    font-size: 0.95em;
+}
+.shipping-card h4 {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Estilo para quando um card está sendo arrastado */
+.dragging {
+    opacity: 0.5;
+    transform: rotate(3deg);
+}
+
+/* Production Steps Checkboxes */
+.production-steps {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    display: none; /* Escondido por padrão, JS controla a visibilidade */
+}
+
+.production-steps label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+#lamination-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo para a área onde o card pode ser solto */
+.drag-over {
+    background-color: #d1e8ff;
+    border: 2px dashed #99caff;
+}
+
+
+/* Botão e Modal para Adicionar Card */
+#add-card-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add-card-form input,
+#add-card-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#add-card-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
