@@ -15,7 +15,7 @@
     <div class="main-container">
         <div class="shipping-list">
             <div id="pending-cards-container" class="pending-cards-section">
-                <!-- Cards prontos para envio serão inseridos aqui -->
+               
             </div>
         </div>
         <div class="shipping-lanes-container-wrapper">
@@ -28,7 +28,7 @@
             </form>
 
             <div id="shipping-lanes-container" class="shipping-lanes-container">
-                <!-- Destinos serão inseridos aqui -->
+                
             </div>
         </div>
     </div>
