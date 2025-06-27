@@ -3,7 +3,6 @@ require_once '../db/config.php';
 
 header('Content-Type: application/json');
 
-// Pega os dados enviados via POST
 $data = json_decode(file_get_contents('php://input'), true);
 
 $id = $data['id'] ?? 0;
